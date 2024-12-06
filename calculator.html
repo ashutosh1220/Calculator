@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://kit.fontawesome.com/c2420e0646.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+    <title>calculator</title>
+</head>
+
+<body>
+    <div class="btnBox">
+        <div class="btn" id="btn">
+            <div class="toggle" id="toggleBtn" onclick="toggleBackground();"></div>
+        </div>
+        <i class="bi bi-brightness-high-fill" id="di" onclick="toggleBackground();"></i>
+        <div class="themes">
+            <span id="theme">Themes</span>
+            <span id="downarrow"><i class="fa-solid fa-angle-down"></i></span>
+        </div>
+        <input type="button" value="close" id="close" onclick="closeWindow();">
+
+    </div>
+    <div class="cal_container">
+        <div class="calculator">
+            <div class="screen" id="screen">
+                <input type="text" class="screen1" id="screen1" value="" readonly>
+                <input type="text" class="screen2" id="screen2" value="" readonly>
+            </div>
+            <div class="btn_container">
+                <div class="row">
+
+                    <input type="button" value="ON" id="onOff" onclick="oNoff();">
+                    <input type="button" value="AC" onclick="clearScreen(); activatePointButton();" id="AC">
+                    <input type="button" value="Del." onclick="deleteLast(); " id="Del">
+
+                    <input type="button" value="/"
+                        onclick="if(screen1.value != '' && screen1.value != '-'){if(screen1.value[screen1.value.length-1]%1===0){Input('/');}else if(screen1.value != ''){deleteLast(); Input('/');}} activatePointButton();">
+                </div>
+
+                <div class="row">
+
+                    <input type="button" value="7" onclick="Input('7'); evaluateExpression();">
+                    <input type="button" value="8" onclick="Input('8');  evaluateExpression();">
+                    <input type="button" value="9" onclick="Input('9');  evaluateExpression();">
+
+                    <input type="button" value="*"
+                        onclick="if(screen1.value != '' && screen1.value != '-'){if(screen1.value[screen1.value.length-1]%1===0){Input('*');}else if(screen1.value != ''){deleteLast(); Input('*');}} activatePointButton();">
+                </div>
+
+                <div class="row">
+
+                    <input type="button" value="4" onclick="Input('4');  evaluateExpression();">
+                    <input type="button" value="5" onclick="Input('5');  evaluateExpression();">
+                    <input type="button" value="6" onclick="Input('6');  evaluateExpression();">
+
+                    <input type="button" value="-"
+                        onclick="if(screen1.value[screen1.value.length-1]%1===0){Input('-');}else{deleteLast(); Input('-');} activatePointButton();">
+                </div>
+
+                <div class="row">
+
+                    <input type="button" value="1" onclick="Input('1');  evaluateExpression();">
+                    <input type="button" value="2" onclick="Input('2');  evaluateExpression();">
+                    <input type="button" value="3" onclick="Input('3');  evaluateExpression();">
+
+                    <input type="button" value="+"
+                        onclick="if(screen1.value != '' && screen1.value != '-'){if(screen1.value[screen1.value.length-1]%1===0){Input('+');}else if(screen1.value != ''){deleteLast(); Input('+');}} activatePointButton();">
+
+                </div>
+
+                <div class="row">
+
+                    <input type="button" value="." id="point" onclick="pointInput();">
+
+                    <input type="button" value="0" onclick="Input('0'); activatePointButton();">
+
+                    <input type="button" value="=" id="eval"
+                        onclick="evaluateExpression(); screen1.value=''; screen1.value=screen2.value; screen2.value='';">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
