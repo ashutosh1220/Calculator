@@ -14,16 +14,20 @@ function oNoff() {
    if (onOff.value === 'ON') {
 
       clearScreen();
+      screen1.setAttribute("placeholder", "0");
+      screen2.setAttribute("placeholder", "0");
+
       screen.style.transition = "all 0.2s ease-in-out";
       screen.style.backgroundColor = "#c9d1da";
       onOff.style.backgroundColor = "rgb(255, 178, 178)";
       onOff.value = 'OFF';
-
+     
    }
    else if (onOff.value === 'OFF') {
 
       clearScreen();
-
+      screen1.removeAttribute("placeholder");
+      screen2.removeAttribute("placeholder");
       screen.style.transition = "all 0.2s ease-in-out";
       screen.style.backgroundColor = "black";
       onOff.style.backgroundColor = "rgb(204, 241, 199)";
